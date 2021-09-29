@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   mock-backend:
-    image: docker.io/smallseal/mock-backend-demo:feature-docker-demo
+    image: docker.io/smallseal/mock-backend-demo:master
     container_name: mock-backend
     environment:
       - TZ=Asia/Taipei
