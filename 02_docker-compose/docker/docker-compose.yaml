@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mock-backend:
+    image: docker.io/smallseal/mock-backend-demo:feature-docker-demo
+    container_name: mock-backend
+    environment:
+      - TZ=Asia/Taipei
+    ports:
+      - 5000:5000
+    networks:
+      - small-seal
+    volumes:
+      - ../data/static:/root/src/app/static/
+      # - json-data:/root/src/app/static/
+  
+  demo-ap:
+    image: curlimages/curl
+    container_name: demo-ap
+    networks:
+      - small-seal
+    command: "tail -f /dev/null"
+
+# volumes:
+#   json-data:
+
+networks:
+  small-seal:
+    driver: bridge
